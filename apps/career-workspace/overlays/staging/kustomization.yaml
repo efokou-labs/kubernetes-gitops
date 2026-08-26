@@ -7,6 +7,10 @@ resources:
 replicas:
   - name: career-workspace
     count: 2
+  - name: career-workspace-web
+    count: 1
 images:
   - name: ghcr.io/efokou-labs/career-workspace
+    newTag: staging
+  - name: ghcr.io/efokou-labs/career-workspace-web
     newTag: staging
