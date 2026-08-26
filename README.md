@@ -28,6 +28,8 @@ After `make kind-up` in cloud-platform-blueprint:
 kubectl apply -f bootstrap/root-application.yaml
 ```
 
+The career-workspace `dev` overlay runs Postgres and Redis in-cluster (emptyDir). UI: `kubectl -n career-workspace port-forward svc/career-workspace-web 3000:80`.
+
 ## License
 
 The source code for this project is licensed under the MIT License. Personal content, including my resume, photographs, written content, branding, and other identifying materials, is not covered by this license and may not be reused without permission.

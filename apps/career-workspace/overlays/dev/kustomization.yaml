@@ -4,9 +4,19 @@ namespace: career-workspace
 resources:
   - ../../base
   - namespace.yaml
+  - secret.yaml
+  - postgres.yaml
+  - redis.yaml
+  - worker.yaml
+patches:
+  - path: api-env.yaml
 replicas:
   - name: career-workspace
     count: 1
+  - name: career-workspace-web
+    count: 1
 images:
   - name: ghcr.io/efokou-labs/career-workspace
+    newTag: dev
+  - name: ghcr.io/efokou-labs/career-workspace-web
     newTag: dev

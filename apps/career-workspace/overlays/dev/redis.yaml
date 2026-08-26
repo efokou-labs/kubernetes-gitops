@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: career-workspace-redis
+  labels:
+    demo: kind-only
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: career-workspace-redis
+  template:
+    metadata:
+      labels:
+        app: career-workspace-redis
+        demo: kind-only
+    spec:
+      containers:
+        - name: redis
+          image: redis:7-alpine
+          args: ["--save", "", "--appendonly", "no"]
+          ports:
+            - containerPort: 6379
+          readinessProbe:
+            exec:
+              command: ["redis-cli", "ping"]
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: career-workspace-redis
+spec:
+  selector:
+    app: career-workspace-redis
+  ports:
+    - port: 6379

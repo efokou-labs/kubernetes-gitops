@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
+  - web-deployment.yaml
+  - web-service.yaml
