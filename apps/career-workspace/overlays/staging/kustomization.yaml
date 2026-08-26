@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: career-workspace
+resources:
+  - ../../base
+  - namespace.yaml
+replicas:
+  - name: career-workspace
+    count: 2
+images:
+  - name: ghcr.io/etiennefokou-e18560/career-workspace
+    newTag: staging

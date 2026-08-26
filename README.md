@@ -1,0 +1,29 @@
+# kubernetes-gitops
+
+Desired state for the shared kind (and later EKS) cluster. CI builds images in application repos; **this** repo changes tags and overlays. Humans do not `kubectl apply` in production.
+
+## Promotion
+
+| Overlay | How it moves |
+| --- | --- |
+| `dev` | Merge to `main` can update image tags automatically |
+| `staging` | PR from `dev` values; smoke tests |
+| `prod` | Protected environment, manual approval |
+
+Argo CD reconciles, detects drift, and rolls back by reverting Git.
+
+Optional later: Argo Rollouts canary 5% → 20% → 50% → 100% gated on error rate and latency (see `docs/rollouts.md`).
+
+## Verify
+
+```bash
+make verify
+```
+
+## Bootstrap
+
+After `make kind-up` in cloud-platform-blueprint:
+
+```bash
+kubectl apply -f bootstrap/root-application.yaml
+```
