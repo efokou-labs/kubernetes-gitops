@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/EtienneFokou-E18560/kubernetes-gitops.git
+    repoURL: https://github.com/efokou-labs/kubernetes-gitops.git
     targetRevision: main
     path: apps/root
   destination:

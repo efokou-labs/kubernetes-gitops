@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/etiennefokou-e18560/career-workspace:dev
+          image: ghcr.io/efokou-labs/career-workspace:dev
           ports:
             - containerPort: 8080
           livenessProbe:

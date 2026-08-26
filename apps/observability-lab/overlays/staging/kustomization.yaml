@@ -8,5 +8,5 @@ replicas:
   - name: obs-lab
     count: 2
 images:
-  - name: ghcr.io/etiennefokou-e18560/observability-lab
+  - name: ghcr.io/efokou-labs/observability-lab
     newTag: staging

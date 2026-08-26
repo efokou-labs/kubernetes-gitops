@@ -8,5 +8,5 @@ replicas:
   - name: job-processor
     count: 2
 images:
-  - name: ghcr.io/etiennefokou-e18560/distributed-job-processor
+  - name: ghcr.io/efokou-labs/distributed-job-processor
     newTag: prod

@@ -8,5 +8,5 @@ replicas:
   - name: agentic-ai
     count: 2
 images:
-  - name: ghcr.io/etiennefokou-e18560/agentic-ai-platform
+  - name: ghcr.io/efokou-labs/agentic-ai-platform
     newTag: staging

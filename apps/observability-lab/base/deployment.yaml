@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/etiennefokou-e18560/observability-lab:dev
+          image: ghcr.io/efokou-labs/observability-lab:dev
           ports:
             - containerPort: 8080
           livenessProbe:

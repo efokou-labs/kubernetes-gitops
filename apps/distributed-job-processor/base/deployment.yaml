@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/etiennefokou-e18560/distributed-job-processor:dev
+          image: ghcr.io/efokou-labs/distributed-job-processor:dev
           ports:
             - containerPort: 8080
           livenessProbe:
