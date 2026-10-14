@@ -28,7 +28,7 @@ After `make kind-up` in cloud-platform-blueprint:
 kubectl apply -f bootstrap/root-application.yaml
 ```
 
-The career-workspace `dev` overlay runs Postgres and Redis in-cluster (emptyDir). UI: `kubectl -n career-workspace port-forward svc/career-workspace-web 3000:80`.
+The Askel `dev` overlay runs Postgres and Redis in-cluster (emptyDir). Live product: [getaskel.com](https://www.getaskel.com/). UI: `kubectl -n askel port-forward svc/askel-web 3000:80`.
 
 ## License
 

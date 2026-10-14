@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: career-workspace-web
+  name: askel-web
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: career-workspace-web
+      app: askel-web
   template:
     metadata:
       labels:
-        app: career-workspace-web
+        app: askel-web
     spec:
       containers:
         - name: web
-          image: ghcr.io/efokou-labs/career-workspace-web:dev
+          image: ghcr.io/efokou-labs/askel-web:dev
           ports:
             - containerPort: 3000
           env:
             - name: API_URL
-              value: http://career-workspace
+              value: http://askel
           livenessProbe:
             httpGet:
               path: /

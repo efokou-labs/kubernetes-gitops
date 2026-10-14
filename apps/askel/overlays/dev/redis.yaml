@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: career-workspace-redis
+  name: askel-redis
   labels:
     demo: kind-only
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: career-workspace-redis
+      app: askel-redis
   template:
     metadata:
       labels:
-        app: career-workspace-redis
+        app: askel-redis
         demo: kind-only
     spec:
       containers:
@@ -37,9 +37,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: career-workspace-redis
+  name: askel-redis
 spec:
   selector:
-    app: career-workspace-redis
+    app: askel-redis
   ports:
     - port: 6379

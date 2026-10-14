@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: career-workspace
+  name: askel
 spec:
   template:
     spec:
@@ -11,14 +11,14 @@ spec:
           command:
             - sh
             - -c
-            - until nc -z career-workspace-postgres 5432; do sleep 1; done
+            - until nc -z askel-postgres 5432; do sleep 1; done
       containers:
         - name: app
           env:
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: career-workspace-db
+                  name: askel-db
                   key: DATABASE_URL
             - name: REDIS_URL
-              value: redis://career-workspace-redis:6379/0
+              value: redis://askel-redis:6379/0

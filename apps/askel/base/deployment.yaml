@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: career-workspace
+  name: askel
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: career-workspace
+      app: askel
   template:
     metadata:
       labels:
-        app: career-workspace
+        app: askel
     spec:
       containers:
         - name: app
-          image: ghcr.io/efokou-labs/career-workspace:dev
+          image: ghcr.io/efokou-labs/askel:dev
           ports:
             - containerPort: 8080
           livenessProbe:

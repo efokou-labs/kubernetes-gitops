@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: career-workspace-worker
+  name: askel-worker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: career-workspace-worker
+      app: askel-worker
   template:
     metadata:
       labels:
-        app: career-workspace-worker
+        app: askel-worker
     spec:
       containers:
         - name: worker
-          image: ghcr.io/efokou-labs/career-workspace:dev
+          image: ghcr.io/efokou-labs/askel:dev
           command: ["python", "-m", "app.worker"]
           env:
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: career-workspace-db
+                  name: askel-db
                   key: DATABASE_URL
             - name: REDIS_URL
-              value: redis://career-workspace-redis:6379/0
+              value: redis://askel-redis:6379/0
           resources:
             requests:
               cpu: 25m

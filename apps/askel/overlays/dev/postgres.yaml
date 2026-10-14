@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: career-workspace-postgres
+  name: askel-postgres
   labels:
     demo: kind-only
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: career-workspace-postgres
+      app: askel-postgres
   template:
     metadata:
       labels:
-        app: career-workspace-postgres
+        app: askel-postgres
         demo: kind-only
     spec:
       containers:
@@ -24,21 +24,21 @@ spec:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: career-workspace-db
+                  name: askel-db
                   key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: career-workspace-db
+                  name: askel-db
                   key: POSTGRES_PASSWORD
             - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:
-                  name: career-workspace-db
+                  name: askel-db
                   key: POSTGRES_DB
           readinessProbe:
             exec:
-              command: ["pg_isready", "-U", "app", "-d", "career"]
+              command: ["pg_isready", "-U", "app", "-d", "askel"]
             initialDelaySeconds: 3
             periodSeconds: 5
           resources:
@@ -58,9 +58,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: career-workspace-postgres
+  name: askel-postgres
 spec:
   selector:
-    app: career-workspace-postgres
+    app: askel-postgres
   ports:
     - port: 5432
