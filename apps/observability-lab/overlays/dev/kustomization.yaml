@@ -4,6 +4,8 @@ namespace: observability-lab
 resources:
   - ../../base
   - namespace.yaml
+patches:
+  - path: env.yaml
 replicas:
   - name: obs-lab
     count: 1
